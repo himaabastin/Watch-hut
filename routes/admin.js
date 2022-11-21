@@ -387,7 +387,7 @@ router.get("/viewBanner",(req,res)=>{
   })
 
 })
-router.get("/deleteBanners/:id", (req, res) => {
+router.get("/deleteBanner/:id", (req, res) => {
   let BannerId = req.params.id;
   productHelpers.deleteBanner(BannerId).then((response) => {
     res.redirect("/admin/viewBanner");
