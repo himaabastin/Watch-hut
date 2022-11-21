@@ -1,0 +1,245 @@
+<div class="container  ">
+<section class="h-100 gradient-custom">
+  <div class="page-content page-container" id="page-content">
+    <div class="padding">
+      <div class="padding"></div>
+      <div class="row container d-flex justify-content-center">
+        <div class="col-md-6 col-lg-12">
+          <div class="card user-card-full">
+            <div class="row m-l-0 m-r-0">
+              <div class="col-sm-4 bg-c-lite-green user-profile">
+                <div class="card-block text-center text-white">
+                  <div class="m-b-25 mt-5 pb-4" style="  color:rgb(131, 128, 128);border-style:solid ;">
+
+                    {{#if user}}
+                
+
+                    <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
+                      alt="User-Profile-Image" />
+                    <h5 style=" color: black; text-align: center;"><b>Hello, {{user.Name}}</b></h5>
+                    <h5 style=" color: black; text-align: center;"> {{user.Email}}</h5>
+                    <br>
+                  </div>
+                  {{!-- <h6 class="f-w-600">{{user.Name}}</h6> --}}
+                  {{!-- <a href="/user/userProfile" style="color: blue;margin-left: 5%;">Change Password ?</a> --}}
+                  <i class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="card-block">
+                
+                 
+                  {{/if}}
+                    <hr2>
+                  
+                  
+                  <div class="container">
+                  <h3 class="text-center mt-3 mb-1" style="text-decoration: underline;"><b>Address</b></h3>
+
+                    <div class="row ">
+
+                      {{#each address}}
+                      <div class="col-lg-6 mt-4">
+                        <div class="card card-margin">
+                          <div class="card-header no-border">
+                            <h5 class="card-title">{{#if this.default}}
+                              <span class="badge badge-success">Default</span>
+                              {{/if}}
+
+                            </h5>
+                          </div>
+                          <div class="card-body pt-0">
+                            <div class="widget-49">
+                              <div class="widget-49-title-wrapper">
+
+                                <div class="widget-49-meeting-info">
+                                  <span class="widget-49-pro-title">{{this.flat}}</span>
+                                  <span class="widget-49-pro-title">{{this.area}}</span>
+                                  <span class="widget-49-pro-title">{{this.landmark}}</span>
+                                  <span class="widget-49-pro-title">{{this.pincode}}</span>
+                                  <span class="widget-49-pro-title">{{this.city}}</span>
+                                  <span class="widget-49-pro-title">{{this.state}}</span>
+
+
+                                </div>
+                              </div>
+                           
+                              
+                             
+                              <div class="widget-49-meeting-action">
+                                <div class="row">
+                                  <div class="col">{{#if this.default}}
+                                    {{!-- {{else}}
+                                    <a href="/addressDefault/{{this._id}}" class="btn btn-sm btn-primary">Set as
+                                      Default</a> --}}
+                                    {{/if}}
+                                  </div>
+                                  {{!-- <div class="col"> <a href="/addressUpdate/{{this._id}}"
+                                      class="btn btn-sm btn-success">Update</a></div> --}}
+
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {{/each}}
+                      <div class="row">
+                    <div class="col"></div>
+                    <div class="col-lg-4 mt-3"> <a href="/addAddress" class="btn mb-5 btn-sm btn-success">Add
+                        Address</a>
+                    </div>
+                  </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding"></div>
+      <div class="padding"></div>
+</section>
+</div>
+<style>
+body {
+    background-color: #f8dbd9
+}
+
+.padding {
+    padding: 3rem !important
+}
+
+.user-card-full {
+    overflow: hidden;
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border: none;
+    margin-bottom: 30px;
+}
+
+.m-r-0 {
+    margin-right: 0px;
+}
+
+.m-l-0 {
+    margin-left: 0px;
+}
+
+.user-card-full .user-profile {
+    border-radius: 5px 0 0 5px;
+}
+
+.bg-c-lite-green {
+        background: --webkit-gradient(linear, left top, right top, from(#d48761), to(#837f7f));
+    background: linear-gradient(to right, #aba6a6, #f29263);
+}
+
+.user-profile {
+    padding: 20px 0;
+}
+
+.card-block {
+    padding: 1.25rem;
+}
+
+.m-b-25 {
+    margin-bottom: 25px;
+}
+
+.img-radius {
+    border-radius: 5px;
+}
+
+
+ 
+h6 {
+    font-size: 14px;
+}
+
+.card .card-block p {
+    line-height: 25px;
+}
+
+@media only screen and (min-width: 1400px){
+p {
+    font-size: 14px;
+}
+}
+
+.card-block {
+    padding: 1.25rem;
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.card .card-block p {
+    line-height: 25px;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.text-muted {
+    color: #919aa3 !important;
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.f-w-600 {
+    font-weight: 600;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-t-40 {
+    margin-top: 20px;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.m-t-40 {
+    margin-top: 20px;
+}
+
+.user-card-full .social-link li {
+    display: inline-block;
+}
+
+.user-card-full .social-link li a {
+    font-size: 20px;
+    margin: 0 10px 0 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+</style>

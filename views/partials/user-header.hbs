@@ -1,0 +1,65 @@
+<script src="https://kit.fontawesome.com/98c7006d3c.js" crossorigin="anonymous"></script>
+<header >
+    <nav style="background:rgb(73, 40, 40) ;"  class="navbar navbar-expand-lg navbar-dark ">
+  <button class="navbar-toggler" type="button"  data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a style="font-weight:lighter ;color:rgb(235, 219, 219);font-family:cursive;font-size: 2rem;" class="navbar-brand" href="/">Watch-Hut</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="color:#fff ;">
+      
+
+      <div class="dropdown">
+  <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:rgb(73, 40, 40)  ; color:#fff">
+Category
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/categoryWomen">Women</a>
+    <a class="dropdown-item" href="/categoryMen">Men</a>
+  </div>
+</div>
+    </ul>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="color:#fff ;">
+
+      <li class="nav-item">
+        <a class="nav-link"style="color:#fff ;" href="/wishlist"><i class="fa-solid fa-heart"></i></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" style="color:#fff ;" href="/cart"><i class="fa-solid fa-cart-shopping"></i><span class="badge badge-secondary" id="cart-count">{{cartCount}}</span>
+</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " style="color:#fff ;" href="/userProfile"> <b><i class="fa-solid fa-user"></i></b> </a>
+
+      </li>
+     
+    </ul>
+  <div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:rgb(75, 74, 74) ;">
+    {{#if user}}
+      
+<b><i>{{user.Name}}</i></b>
+{{else}}
+<b><i>Account</i></b>
+    {{/if}}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    {{#if user}}
+       
+        <a class="dropdown-item" href="/orders"><b>Orders</b></a>
+    <a class="dropdown-item" href="/logout"><b>Logout</b></a>
+
+      
+
+    {{else}}
+    <a class="dropdown-item" href="/login"><b>Login</b></a>
+     <a class="dropdown-item" href="/signup"><b>Signup</b></a>
+{{/if}}
+
+
+  </div>
+</div>
+  </div>
+</nav>
+</header>

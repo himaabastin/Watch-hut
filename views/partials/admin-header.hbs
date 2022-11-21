@@ -1,0 +1,67 @@
+
+<script src="https://kit.fontawesome.com/98c7006d3c.js" crossorigin="anonymous"></script>
+
+<header >
+
+    <nav style="background:rgb(73, 40, 40) ;" class="navbar navbar-expand-lg ">
+      <div class="container-fluid">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <a style="font-weight:lighter ;color:rgb(235, 219, 219);font-family:cursive;font-size: 2rem;" class="navbar-brand" href="/admin/dashboard">Admin panel</a>
+
+
+<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item active" >
+         {{#if adminData}}
+        <a class="nav-link"style="color:#ffff ;" href="/admin/dashboard">dashboard
+        <span class="sr-only">(current)</span></a>
+        {{/if}}
+      </li>
+       <li class="nav-item active" >
+         {{#if adminData}}
+        <a class="nav-link"style="color:#ffff ;" href="/admin">All products<span class="sr-only">(current)</span></a>
+        {{/if}}
+      </li>
+      {{#if adminData}}
+      <li class="nav-item">
+        <a class="nav-link"style="color:#ffff ;" href="/admin/order-management">All orders</a>
+      </li>
+      {{/if}}
+      <li class="nav-item">
+        {{#if adminData}}
+        <a class="nav-link "style="color:#ffff ;" href="/admin/view-users">All users</a>
+        {{/if}}
+      </li>
+     
+       <li class="nav-item">
+        {{#if adminData}}
+        <a class="nav-link "style="color:#ffff ;" href="/admin/category-management">Category</a>
+        {{/if}}
+      </li>
+    
+
+      <div class="dropdown ">
+  <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:rgb(73, 40, 40)  ; color:#fff">
+ <i class="fa-solid fa-bars" style="color: #fff;"></i>
+  </button>
+    {{#if adminData}}
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+   
+    <a class="dropdown-item" href="/admin/salesReport"><b>Sales Report</b></a>
+    
+    <a class="dropdown-item" href="/admin/coupon"><b>Coupon</b></a>
+
+     <a class="dropdown-item" href="/admin/ViewBanner"><b>Banner</b></a>
+  </div>
+     {{/if}}
+</div>
+   
+    </ul>
+    
+  </div>
+      </div>
+</nav>
+</header>

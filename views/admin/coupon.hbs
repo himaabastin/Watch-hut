@@ -1,0 +1,54 @@
+<div class="container " style="margin-left:20rem ;">
+<div class="col-lg-6 mt-5 me-1   rounded" style="background-color:#d4aca3 ;">
+    <h1>
+        <p class="text-center mt-1"> <i><b>Coupon</b></i></p>
+        {{!--
+        <hr style="height:2px;border-width:0;"> --}}
+    </h1>
+    <div class="card card-body" style="border-radius: 15px; ">
+        <div class="row align-items-center pt-4 pb-3" style="margin-left:6rem">
+            <form method="post" action="/admin/coupon" enctype="multipart/form-data">
+                <p class="text-center mt-1 " style="font-size:1.5rem ;"> <i><b> Add Coupon</b></i></p>
+                <div class="col">{{#if message}}
+                    <span style="color: red;">
+                        <p class="text-center mt-1"> <i>{{message}} </i></p>
+                    </span>{{/if}}
+                    <input type="text" placeholder=" Coupon Code" name="code"
+                        class="form-control border-dark form-control" required /><br>
+                    <input type="text" placeholder=" Coupon Value" name="value"
+                        class="form-control border-dark form-control-mt-2" required />
+                    <button type="submit" class="btn me-1 mt-2 btn-success">Add</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <table class="table mt-5">
+        <thead>
+            <tr style="background-color:#606063;color:rgb(14, 14, 13)" align="center">
+
+                <th scope="col">Coupon Code</th>
+                <th scope="col">Coupon Value</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each coupon}}
+            <tr class="table" align="center" style="background-color:rgb(217, 208, 208) ;">
+
+                <td>{{this.code}} </td>
+                <td>{{this.value}}</td>
+                <td><a type="button" href="/admin/couponDelete/{{this._id}}"
+                        class="btn btn-danger btn-rounded">Delete</a></td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>
+
+</div>

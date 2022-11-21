@@ -1,0 +1,82 @@
+<section class="vh-100" style="background-color: #ded5d5;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card mx-auto" style="border-radius: 1rem;">
+          <div class="row mx-auto">
+            <div class="col-md-6 col-lg-6 d-none d-md-block p-0">
+              <img src="/images/renjith.jpg"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            
+            <div class="col-md-6 col-lg-6 d-flex align-items-center" >
+              <div class="card-body  text-black">
+
+                <form action="/signup" method="post">
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <span class="h1 fw-bold mb-0" style="color: rgb(102, 12, 12);">Watch Hut</span>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-4" style="letter-spacing: 1px;">Create new account</h5>
+                   <div class="form-outline mb-4">
+
+                   
+                    <label class="form-label" for="Name">Name</label>
+                    <input type="text" id="Name" class="form-control form-control-lg" name="Name" placeholder="Enter your name" />
+                  </div>
+                   {{#if errors.NameMsg}}
+                    <div class="col-md-12 alert alert-danger" role="alert">
+                        {{errors.NameMsg}}
+                    </div>
+                    {{/if}}
+                  
+                  <div class="form-outline mb-3">
+                      <label class="form-label" for="Mobilenumber">Mobilenumber</label>
+                    <input type="Mobilenumber" id="Mobilenumber" class="form-control" name="Mobilenumber" placeholder="Enter your Mobilenumber" />
+                  </div>
+                  {{#if errors.MobileMsg}}
+                    <div class="col-md-12 alert alert-danger" role="alert">
+                        {{errors.MobileMsg}}
+                    </div>
+                    {{/if}}
+              
+                  <div class="form-outline">
+                    <label class="form-label" for="Email">Email address</label>
+                    <input type="Email" id="Email" class="form-control form-control-lg" name="Email" placeholder="Enter your email" /><br>
+                  </div>
+                   {{#if errors.EmailMsg}}
+                    <div class="col-md-12 alert alert-danger" role="alert">
+                        {{errors.EmailMsg}}
+                    </div>
+                    {{/if}}
+
+                 
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="Password">Password</label>
+                    <input type="Password" id="Password" class="form-control form-control-lg" name="Password" placeholder="Enter your password" />
+                  </div>
+                   {{#if errors.PasswordMsg}}
+                    <div class="col-md-12 alert alert-danger" role="alert">
+                        {{errors.PasswordMsg}}
+                    </div>
+                    {{/if}}
+                    
+<p style="color: rgb(231, 70, 70);">(Password must contain atleast eight characters, one small letter, one capital letter, one number and one special character)</p>
+                
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">SIGNUP</button>
+                  </div>
+
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a href="/login"
+                      style="color: #393f81;">Login here</a></p>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

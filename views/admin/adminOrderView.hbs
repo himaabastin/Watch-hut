@@ -1,0 +1,171 @@
+<div class="col-lg-12 me-1 " style="background-color:#a9a7a9 ; border-style:solid; border-color: black;">
+  <h1>
+    <p class="text-center mt-1"> <b>Order Details</b></p>
+    {{!
+    <hr style="height:2px;border-width:0;"> }}
+  </h1>
+  {{#each orderDetails}}
+  <h6>
+    <div class ="card shadow-sm py-5 px-4 bg-white-rounded text-center" style="border-color: black; border-width:2px ;">
+      <div class="row ">
+        <div class="col">Order Date </div>
+        <div class="col"> {{this.date}}</div>
+      </div>
+        <hr />
+
+      <div class="row">
+        <div class="col">Order ID </div>
+        <div class="col"> {{this._id}}</div>
+      </div>
+        <hr />
+
+      <div class="row">
+        <div class="col">Customer Name </div>
+        <div class="col">{{this.deliveryDetails.name}}</div>
+      </div>
+        <hr />
+
+       <div class="row">
+        <div class="col">Mobile  </div>
+        <div class="col">{{this.deliveryDetails.mobile}}</div>
+      </div>
+        <hr />
+
+      <div class="row">
+        <div class="col">Address</div>
+        <div class="col">{{this.deliveryDetails.flat}}</div>
+      </div>
+        <hr />
+
+      <div class="row">
+        <div class="col">Pincode</div>
+        <div class="col">{{this.deliveryDetails.pincode}}</div>
+      </div>
+        <hr />
+
+      <div class="row">
+        <div class="col">Payment Method</div>
+        <div class="col">{{this.paymentMethod}}</div>
+      </div>
+        <hr />
+
+      <div class="row">
+        <div class="col">Total Amount</div>
+        <div class="col">₹ {{this.totalAmount}} /-</div>
+        
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col">Current Status</div>
+        <div class="col"> {{this.status}} </div>
+      </div>
+        <hr />
+
+
+    </div>
+  </h6>
+  {{/each}}
+  <div class="row">
+    <div class="col-lg-6 my-5">
+      <div id="main-content" class="bg-white border">
+        <div class="text-uppercase text-center"><b>Product details</b></div>
+        <div class="order my-3 " style="border-color: rgb(51, 50, 50); border-width: 2px;">
+
+          <div class="row">
+
+            <div class="card-body">
+        <hr / style="color:rgb(11, 11, 11) ;">
+
+              {{#each proDetails}}
+              <div class="row">
+                <div class="col-md-2">
+                  <img src="/product-images/{{this.product._id}}.jpg" class="img-fluid" alt="Phone" />
+                </div>
+                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                  <p class="text-muted mb-0">{{this.product.Name}}</p>
+                </div>
+                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                  <p class="text-muted mb-0 small">{{this.product.Price}}</p>
+                </div>
+            
+                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                  <p class="text-muted mb-0 small">{{this.quantity}}</p>
+                </div>
+                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                  <p class="text-muted mb-0 small">{{this.product.category}}</p>
+                </div>
+              </div>
+
+              <hr class="mb-4" style="background-color: #a39e9e; " />
+
+              {{/each}}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-6 my-5">
+      <div id="main-content" class="bg-white border">
+        <div class="text-uppercase text-center"><b>Admin Updates</b></div>
+        <div class="order my-3 bg-light">
+
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="text-uppercase">Cancel order</div>
+                </div>
+                <div class="row">
+
+                  {{#each orderDetails}}
+                   <form method="post" action="/admin/cancelOrder/{{this._id}}">
+                    <input type="text" placeholder="Remark" value="{{this.remark}}" name="remark"
+                      class="form-control border-warning form-control-lg mt-4" required />{{/each}}</div>
+                <div class="col"><button type="submit" class="btn btn-danger mt-3  btn-lg">Cancel</button></div>
+
+                </form>
+
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="text-uppercase">Update order status</div>
+                </div>
+                <div class="row"> {{#each orderDetails}}
+                  <form method="post" action="/admin/orderStatusUpdate/{{this._id}}">
+                    <select class="select form-control border-primary form-control-lg mt-4" name="status">
+
+                      <option selected>{{this.status}}</option>{{/each}}
+                      <option value="placed">Placed</option>
+                      <option value="Accepted">Accepted</option>
+                      <option value="Packed">Packed</option>
+                      <option value="Shipped">Shipped</option>
+                      <option value="Delivered">Delivered</option>
+                      <option value="Returned">Returned</option>
+
+                    </select>
+                </div>
+
+
+
+                <div class="col">
+                  <button type="submit" class="btn btn-primary mt-3  btn-lg">Update</button>
+                </div>
+                </form>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

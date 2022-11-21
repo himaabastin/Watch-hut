@@ -1,0 +1,130 @@
+<div class="container minHeight">
+
+    <div class="d-flex justify-content-end border-bottom my-3">
+        <h1>Orders</h1>
+    </div>
+
+  
+    <div class="d-flex flex-column  mb-3">
+        <table id="table_id" class=" table">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">Date </th>
+                    <th scope="col" class="text-center">Status</th>
+                    <th scope="col" class="text-center">Address</th>
+                    <th scope="col" class="text-center">Pincode</th>
+                    <th scope="col" class="text-center">Mobile</th>
+                    <th scope="col" class="text-center">Amount</th>
+                    <th scope="col" class="text-center">Payment</th>
+                    <th scope="col" class="text-center">View</th>
+                    <th scope="col" class="text-center">Options</th>
+
+                    {{!-- <th scope="col" class="text-center">Return</th> --}}
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {{#each orders1}}
+                <tr>
+
+                    {{!-- <td class="text-center"><img src="/images/image1{{this._id}}.jpg" alt="image"
+                            style="width: 5rem; height: 5rem; object-fit: contain;"> --}}
+                    </td>
+
+                    <td class="text-center">{{this.date}}</td>
+                    <td class="text-center cell-highlight"><br>{{this.status}}</td>
+
+                    <td class="text-center"><br>{{this.deliveryDetails.address}}</td>
+                    <td class="text-center"><br>{{this.deliveryDetails.pincode}}</td>
+                    <td class="text-center"><br>{{this.deliveryDetails.mobile}}</td>
+                    <td class="text-center"><br>&#x20B9;{{this.totalAmount}}/-</td>
+                    <td class="text-center"><br>{{this.paymentMethod}}</td>
+
+                    <td>
+                        <a href="/view-order-products/{{this._id}}" class="btn btn-primary">View Products</a>
+                    </td>
+
+                    <td>
+                      
+                        {{#if cancelButton}}
+                        <a href="/cancelOrder/{{this._id}}" class="btn btn-danger ">Cancel
+                        </a>
+                        {{else}}
+                        <span></span>
+                        {{/if}}
+                 
+                        {{#if returnButton}}
+                        <a href="/returnOrder/{{this._id}}" class="btn btn-secondary ">Return
+                        </a>
+                        {{else}}
+                        <span></span>
+                        {{/if}}
+                     
+                    </td>
+                </tr>
+                {{/each}}
+              
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+</div>
+<style>
+    body {
+  font-family: sans-serif;
+}
+ .tableHead{
+    background-color: rgb(188, 180, 180);
+    color: rgb(41, 41, 42);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+ }   
+ th, td {
+  border: 1px solid rgb(52, 51, 51);
+  padding: 8px;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+	vertical-align: middle;
+}
+thead th {
+  width: 25%;
+}
+.cell-highlight {
+  background-color: rgb(221, 209, 145);
+  font-weight: bold;
+}
+caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  color: #333;
+  margin-bottom: 16px;
+}
+thead {
+  background-color: #333;
+  color: white;
+  font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 2%;
+}
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eee;
+}
+tbody th {
+  background-color: rgb(150, 119, 119);
+  color: rgb(3, 3, 3);
+  text-align: left;
+}
+tbody tr:nth-child(even) th {
+  background-color: rgb(200, 168, 168);
+}
+</style>

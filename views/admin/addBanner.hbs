@@ -1,0 +1,29 @@
+<div class="container">
+    <h3>Add Banner</h3>
+    <div class="container mt-5">
+        
+<form action="/admin/addBanner" method="post" enctype="multipart/form-data">
+
+          <input
+            type="file"
+            name="Image"
+            class="form-control"
+            onchange="viewImage(event)"
+            required
+          />
+  
+          <button type="submit" class="btn btn-success mt-4">Add Banner</button>
+        </form>
+        </div>
+</div>
+        <script>
+  function viewImage(event){
+  document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+  }
+</script>
+<style>
+body{
+    background: rgb(189,146,146);
+background: linear-gradient(90deg, rgba(189,146,146,1) 0%, rgba(215,215,218,1) 90%);
+}
+</style>

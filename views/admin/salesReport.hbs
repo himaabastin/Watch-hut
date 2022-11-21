@@ -1,0 +1,154 @@
+<div class="col-lg-12  me-1  rounded" style="background-color:#a6a5a7 ;">
+    <h1>
+        <center><i><b>Sales Report </b></i></center>
+        <div class="dropdown">
+  <button class="btn dropdown-toggle btn-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+Download
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/admin/exportExcel">Excel</a>
+    <button class="dropdown-item" onclick="myfun('pt')">PDF</button>
+  </div>
+</div>
+        {{!-- <div class="down_btn_wrap  mb-3">
+            <div class="btn-group">
+                <a class="btn btn-warning dropdown-toggle mb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Download
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/admin/exportExcel">Excel</a></li>
+                    <li><button class="dropdown-item" onclick="myfu('pt')">Pdf</button></li>
+
+                </ul>
+            </div>
+
+        </div> --}}
+    </h1>
+    <div class="mask d-flex align-items-center mb-3 h-80">
+        <div class="container ">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="table-responsive bg-white">
+                        <div class="table-wrap" id="pt">
+                            <table class="table mb-0" id="usertable">
+
+                                <thead>
+                                    <tr>
+
+                                        <th scope="col">Order Date</th>
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Payment Method</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Total</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each orders}}
+                                    <tr>
+
+                                        <th scope="row" style="color: #666666;">{{this.date}}</th>
+                                        <td>{{this._id}}</td>
+                                        <td>{{this.deliveryDetails.name}}</td>
+                                        <td> {{this.paymentMethod}} </td>
+                                        <td class="cell-highlight">{{this.status}}</td>
+                                        <td>Rs{{this.totalAmount}}/-</td>
+
+
+
+                                        <!-- Modal -->
+
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+</div>
+<script>
+    console.log("script working")
+    function myfun(pt) {
+        var bk = document.body.innerHTML;
+        var dv = document.getElementById('pt').innerHTML;
+        document.body.innerHTML = dv;
+        document.body.style.padding = "20px"
+        window.print();
+        location.reload();
+    }
+    $(document).ready(function () {
+        $('#usertable').DataTable()
+    });
+</script>
+
+<style>
+    body {
+  font-family: sans-serif;
+}
+ .tableHead{
+    background-color: rgb(188, 180, 180);
+    color: rgb(41, 41, 42);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+ }   
+ th, td {
+  border: 1px solid rgb(52, 51, 51);
+  padding: 8px;
+    text-align: center;
+	vertical-align: middle;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+	vertical-align: middle;
+}
+thead th {
+  width: 25%;
+}
+.cell-highlight {
+  background-color: rgb(240, 218, 204);
+  font-weight: bold;
+}
+caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  color: #333;
+  margin-bottom: 16px;
+}
+thead {
+  background-color: #333;
+  color: white;
+  font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 2%;
+}
+tbody tr:nth-child(odd) {
+  background-color: rgb(194, 166, 166);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(237, 205, 205);
+}
+tbody th {
+  background-color: rgb(210, 171, 171);
+  color: rgb(3, 3, 3);
+  text-align: left;
+}
+tbody tr:nth-child(even) th {
+  background-color: rgb(214, 186, 186);
+}
+</style>

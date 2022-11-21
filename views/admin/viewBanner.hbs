@@ -1,0 +1,110 @@
+{{!-- to list and view products by admin --}}
+
+<section>
+
+<div class="container">
+<table class="table btn-lg" id="productsTable">  
+    <div class="row">
+        <a href="/admin/addBanner/{{banner._id}}" class="btn btn-info m-3 ml-auto"> Add Banner</a>
+
+    </div>
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+    
+      <th>Image</th>
+    
+      <th scope="col">Options</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each banner}}
+    <tr>
+    <td>{{inc @index}}</td>
+
+      <td><img style="width:50px;heigth:50px;"src="/banner/{{this._id}}.jpg" alt="watch"></td>
+     
+    
+      <td class="cell-highlight">
+          
+        <a href="/admin/deleteBanner/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete {{this.Name}}')"
+       >Delete</a> 
+     </td>
+    </tr>
+{{/each}}
+  </tbody>
+</table>
+
+
+</div>
+
+</section>
+
+<script>
+  $(function(){
+    $('#productsTable').DataTable()
+  })
+</script>
+<style>
+    body {
+  font-family: sans-serif;
+ 
+    background: rgb(189,146,146);
+background: linear-gradient(90deg, rgba(189,146,146,1) 0%, rgba(215,215,218,1) 90%);
+
+}
+ .tableHead{
+    background-color: rgb(188, 180, 180);
+    color: rgb(41, 41, 42);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+ }   
+ th, td {
+  border: 1px solid rgb(52, 51, 51);
+  padding: 8px;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+	vertical-align: middle;
+}
+thead th {
+  width: 25%;
+}
+.cell-highlight {
+  background-color: rgb(203, 186, 186);
+  font-weight: bold;
+}
+caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  color: #333;
+  margin-bottom: 16px;
+}
+thead {
+  background-color: #333;
+  color: white;
+  font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 2%;
+}
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eee;
+}
+tbody th {
+  background-color: rgb(150, 119, 119);
+  color: rgb(3, 3, 3);
+  text-align: left;
+}
+tbody tr:nth-child(even) th {
+  background-color: rgb(200, 168, 168);
+}
+</style>
+
+

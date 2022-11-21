@@ -1,0 +1,42 @@
+<div class="container minHeight">
+    {{#if adminData}}
+<h1 class="">Category Management</h1>
+<div class="d-flex justify-content-end">
+    
+    <a href="/admin/addNewCategory" class="btn btn-dark mb-3">Add new category</a>
+     </div>
+     <div class="d-flex mb-3">
+<table class="table" id="productsTable">
+<thead>
+    <tr>
+        <th scope="col">Sl.</th>
+        <th scope="col">Category</th>
+        <th scope="col">Options</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <th colspan="3"><div class="text-danger">{{categoryMsg}}</div></th>
+    </tr>
+    {{#each category}}
+    <tr>
+        <th scope="row">{{inc @index}}</th>
+        <td>{{this.category}}</td>
+    <td><a href="/admin/delete-category/{{this._id}}" class="btn btn-outline-danger"
+    onclick="return confirm('Are you sure,you want to delete category :{{this.category}}')">delete</a>
+    </td>
+
+    </tr>
+    {{/each}}
+</tbody>
+</table>
+
+     </div>
+     {{/if}}
+</div>
+
+<script>
+  $(function(){
+    $('#productsTable').DataTable()
+  })
+</script>

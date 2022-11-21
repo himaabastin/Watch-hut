@@ -1,0 +1,97 @@
+<section>
+
+  <div class="container">
+    <div class="d-flex justify-content-center">
+        <h3 class="">USER MANAGEMENT</h3>
+    </div>
+    <table class="table mt-5" id="productsTable">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">User</th>
+          <th scope="col">Email</th>
+          <th scope="col">Permission</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each users}}
+        <tr>
+          <th scope="row">{{inc @index}}</th>
+          <td class="cell-highlight" >{{this.Name}}</td>
+          <td>{{this.Email}}</td>
+          <td>
+
+            {{#if this.userBlocked}}
+                <a href="/admin/unblock-user/{{this._id}}"><button class="btn btn-danger" onclick="return confirm('Do you want to unblock {{this.Name}}?')">UNBLOCK</button></a>
+            {{else}}
+                <a href="/admin/block-user/{{this._id}}"><button class="btn btn-success" onclick="return confirm('Do you want to block {{this.Name}}?')">BLOCK</button></a>
+            {{/if}}
+          </td>
+          
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>
+<script>
+  $(function(){
+    $('#productsTable').DataTable()
+  })
+</script>
+<style>
+    body {
+  font-family: sans-serif;
+}
+ .tableHead{
+    background-color: rgb(188, 180, 180);
+    color: rgb(41, 41, 42);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+ }   
+ th, td {
+  border: 1px solid rgb(52, 51, 51);
+  padding: 8px;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+	vertical-align: middle;
+}
+thead th {
+  width: 25%;
+}
+.cell-highlight {
+  background-color: rgb(234, 211, 197);
+  font-weight: bold;
+}
+caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  color: #333;
+  margin-bottom: 16px;
+}
+thead {
+  background-color: #333;
+  color: white;
+  font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 2%;
+}
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eee;
+}
+tbody th {
+  background-color: rgb(250, 249, 249);
+  color: rgb(3, 3, 3);
+  text-align: left;
+}
+tbody tr:nth-child(even) th {
+  background-color: rgb(254, 252, 252);
+}
+</style>
