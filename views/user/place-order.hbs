@@ -17,7 +17,7 @@
               id="name"
               name="name"
               class="form-control border border-dark"
-            />
+            required/>
           </div>
           <div class="form-outline mb-4">
             <label class="form-label" for="mobile"><b>Mobile</b></label>
@@ -26,22 +26,23 @@
               id="mobile"
               name="mobile"
               class="form-control border border-dark"
-            />
+           required />
           </div>
           <div class="form-outline mb-4">
             <label for="flat"><b>Flat no/House no</b></label>
-            <select class="form-control border border-dark" name="flat" id="">
+            <select class="form-control border border-dark" name="flat" id="" required>
               {{#each address}}
                 <option
                   class="form-control border border-dark"
-                  value="{{this.flat}}"
+                  value="{{this.flat}}" 
+                  
                 >{{this.flat}}</option>
               {{/each}}
             </select><br />
           </div>
           <div class="form-outline mb-4">
             <label for="area"><b>Area:</b></label>
-            <select class="form-control border border-dark" name="area" id="">
+            <select class="form-control border border-dark" name="area" id="" required>
               {{#each address}}
                 <option
                   class="form-control border border-dark"
@@ -56,6 +57,7 @@
               class="form-control border border-dark"
               name="pincode"
               id=""
+              required
             >
               {{#each address}}
                 <option
@@ -71,6 +73,7 @@
               class="form-control border border-dark"
               name="landmark"
               id=""
+              required
             >
               {{#each address}}
                 <option
@@ -82,7 +85,7 @@
           </div>
           <div class="form-outline mb-4">
             <label for="city"><b>City</b></label>
-            <select class="form-control border border-dark" name="city" id="">
+            <select class="form-control border border-dark" name="city" id="" required>
               {{#each address}}
                 <option
                   class="form-control border border-dark"
@@ -93,7 +96,7 @@
           </div>
           <div class="form-outline mb-4">
             <label for="state"><b>State</b></label>
-            <select class="form-control border border-dark" name="state" id="">
+            <select class="form-control border border-dark" name="state" id="" required>
               {{#each address}}
                 <option
                   class="form-control border border-dark"
