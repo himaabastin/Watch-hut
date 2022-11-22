@@ -40,9 +40,9 @@
     <p class="card-text">{{this.Description}}</p>
     <div class="d-flex justify-content-between">
       <button onclick="addToCart('{{this._id}}')" class="btn btn-primary" data-toggle="modal" data-target="#success_tic">Add to cart</button>
-      <a href="/addToWishlist/{{this._id}}">
-        <button class="btn btn-link"><i class="fa-solid fa-heart " style="color:rgb(240, 46, 79) ;"></i></button>
-      </a>
+     
+        <button onclick="addToWishlist('{{this._id}}')" class="btn btn-link"><i class="fa-solid fa-heart " style="color:rgb(240, 46, 79) ;"></i></button>
+      
     </div>
     <div id="success_tic" class="modal fade" role="dialog">
   <div class="modal-dialog">

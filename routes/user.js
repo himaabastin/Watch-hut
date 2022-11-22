@@ -171,20 +171,32 @@ router.get("/add-to-cart/:id", (req, res) => {
 });
 
 router.get("/categoryMen", async (req, res) => {
+  let user = req.session.user;
+  // console.log(user);
+  let cartCount = null;
+  if (req.session.user) {
+    cartCount = await userHelpers.getCartCount(req.session.user._id);
+  }
   let men = await db
     .get()
     .collection(collections.PRODUCT_COLLECTION)
     .find({ category: "MEN" })
     .toArray();
-  res.render("user/categoryMen", { men });
+  res.render("user/categoryMen", { men ,user,cartCount});
 });
 router.get("/categoryWomen", async (req, res) => {
+  let user = req.session.user;
+  // console.log(user);
+  let cartCount = null;
+  if (req.session.user) {
+    cartCount = await userHelpers.getCartCount(req.session.user._id);
+  }
   let women = await db
     .get()
     .collection(collections.PRODUCT_COLLECTION)
     .find({ category: "WOMEN" })
     .toArray();
-  res.render("user/categoryWomen", { women });
+  res.render("user/categoryWomen", { women ,user,cartCount});
 });
 router.post("/change-product-quantity", (req, res, next) => {
   userHelpers.changeProductQuantity(req.body).then(async (response) => {

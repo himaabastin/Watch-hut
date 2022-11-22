@@ -17,9 +17,7 @@ function addToWishlist(proId){
     url:'/addToWishlist/'+proId,
     method:'get',
     success:(response)=>{
-
         location.reload()
-  
     }
   })
 }
