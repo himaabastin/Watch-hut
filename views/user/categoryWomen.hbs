@@ -7,14 +7,14 @@
         <div class="card" style="width: 18rem; border-color: rgb(66, 65, 65); background-color: rgb(227, 232, 232);">
           
    <a href="/single-product-view?id={{this._id}}"><img class="card-img-top" src="/product-images/{{this._id}}.jpg" alt="watch" style="width: 286px;height:286px"></a>
-  <div class="card-body" style="background-color:#d1d0d0 ;">
+  <div class="card-body" style="background-color:#fdfdfd ;">
     <h5 class="card-title">{{this.Name}}</h5></a>
     <p class="card-text">Rs.{{this.Price}}</p>
     <p class="card-text">{{this.Description}}</p>
     <div class="d-flex justify-content-between">
-      <button onclick="addToCart('{{this._id}}')" class="btn btn-primary" data-toggle="modal" data-target="#success_tic">Add to cart</button>
+      <button onclick="addToCart('{{this._id}}')" class="btn btn-outline-dark" data-toggle="modal" data-target="#success_tic">Add to cart</button>
      
-        <button onclick="addToWishlist('{{this._id}}')" class="btn btn-link"><i class="fa-solid fa-heart " style="color:rgb(240, 46, 79) ;"></i></button>
+   <button onclick="addToWishlist('{{this._id}}')" class="btn btn-link  HeartAnimation" ></button>
       
     </div>
     <div id="success_tic" class="modal fade" role="dialog">
@@ -42,6 +42,14 @@
   
  </div>
  </div>
+<script>
+  $(function() {
+  $(".HeartAnimation").click(function() {
+    $(this).toggleClass("animate");
+  });
+});
+</script>
+
  {{/each}}
 
       </div>
@@ -317,5 +325,29 @@ body {
   -webkit-line-clamp: 3;
   overflow: hidden;
 } 
+.HeartAnimation {
+  padding-top: 2em;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/66955/web_heart_animation.png');
+	background-repeat: no-repeat;
+	background-size: 2900%;
+  background-position: left;
+	height: 50px;
+	width: 50px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.animate {
+  animation: heart-burst .8s steps(28) forwards;
+}
+
+@keyframes heart-burst {
+	0% {
+		background-position: left
+	}
+	100% {
+		background-position: right
+	}
+}
 </style>
 
