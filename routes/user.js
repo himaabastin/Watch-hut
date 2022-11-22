@@ -132,7 +132,7 @@ router.post("/otpLoginVerify", (req, res) => {
   console.log(response);
   req.session.loggedIn = true;
   req.session.user = response;
-  res.redirect("/login");
+  res.redirect("/");
 });
 
 router.get("/otpSignupVerify", (req, res) => {
@@ -147,7 +147,6 @@ router.post("/otpSignupVerify", (req, res) => {
   req.session.user = response;
   res.redirect("/");
 });
-
 router.get("/cart", verifyLogin, async (req, res) => {
   let products = await userHelpers.getCartProducts(req.session.user._id);
 
