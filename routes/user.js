@@ -132,7 +132,7 @@ router.post("/otpLoginVerify", (req, res) => {
   console.log(response);
   req.session.loggedIn = true;
   req.session.user = response;
-  res.redirect("/");
+  res.redirect("/login");
 });
 
 router.get("/otpSignupVerify", (req, res) => {
