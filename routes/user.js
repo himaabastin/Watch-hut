@@ -137,7 +137,7 @@ router.post("/otpLoginVerify", (req, res) => {
 
 router.get("/otpSignupVerify", (req, res) => {
   userHelpers.otpSignupVerifyGet(req, res);
-  res.render("user/otpSignupVerify");
+  res.render("user/otpLoginVerify");
 });
 
 router.post("/otpSignupVerify", (req, res) => {

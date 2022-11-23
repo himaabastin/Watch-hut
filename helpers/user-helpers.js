@@ -82,9 +82,7 @@ module.exports = {
       res.render("user/otpLoginVerify", {
         otpMsg: "Wrong phone number or code",
       });
-    } else {
-      res.render("user/otpSignupVerify");
-    }
+    } 
   },
 
   otpSignupVerifyPost: (req, res) => {
