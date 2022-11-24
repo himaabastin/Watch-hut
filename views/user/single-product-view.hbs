@@ -7,13 +7,13 @@
 	<div class="card " style="box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;">
 
 
-		<div class="row g-0">
-			<div class="col-md-6 border-end">
+		<div class="row g-0 boxSingleView">
+			<div class="col-md-6 ">
         
         <div id="main_product_image">
        {{!-- hiiihiufhdsuigbi --}}
-				<div class="d-flex flex-column justify-content-center">
-           <div id="img-container" >
+				<div class="d-flex flex-column justify-content-center end">
+           <div id="img-container ml-5"  >
                         <div id="lens"></div>
                         <img id="featured" src="/product-images/{{this.product._id}}.jpg" class='img-fluid'>
             </div>
@@ -21,10 +21,10 @@
 				</div>
 			</div>
       
-			<div class="col-md-5">
+			<div class="col-md-5" >
 
-				<div class="p-3 right-side">
-					<div class="d-flex justify-content-between align-items-center">
+				<div class="p-3 ">
+					<div class="d-flex justify-content-between ">
 						<h3>
 							<b>{{this.product.Name}}</b>
 						</h3> 
@@ -42,11 +42,12 @@
 					
 					</div>
           <div class="container align-items-center mt-5">
-					<div class="d-flex justify-content-between">
-      <button onclick="addToCart('{{this._id}}')" class="btn btn-outline-dark ml-5" data-toggle="modal" data-target="#success_tic">Add to cart</button>
+            <div class="container " >
+					<div class="d-flex ">
+ <button onclick="addToCart('{{this._id}}')" class="btn btn-outline-dark" data-toggle="modal" data-target="#success_tic">Add to cart</button>
      
-        <button onclick="addToWishlist('{{this._id}}')" class="btn btn-outline-danger mr-5">Add to Wishlist</button>
-      
+        <button onclick="addToWishlist('{{this._id}}')" class="btn  btn-danger " >Add to Wishlist</button>
+      </div>
     </div>
     <div id="success_tic" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -816,7 +817,7 @@ body {
   -webkit-line-clamp: 3;
   overflow: hidden;
 } 
-</style>
+
 </style>
 <script>
   function changeImage(element) {

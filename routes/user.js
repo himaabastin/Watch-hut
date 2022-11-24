@@ -276,12 +276,18 @@ router.get("/view-order-products/:id", async (req, res) => {
 });
 
 router.get("/single-product-view", async (req, res) => {
+  let user = req.session.user;
+  // console.log(user);
+  let cartCount = null;
+  if (req.session.user) {
+    cartCount = await userHelpers.getCartCount(req.session.user._id);
+  }
   let id = req.query.id;
   console.log(id);
   let product = await productHelper.singleProductView(id);
   console.log(product);
 
-  res.render("user/single-product-view", { product });
+  res.render("user/single-product-view", { product ,user,cartCount});
 });
 
 router.post("/verify-payment", (req, res) => {
