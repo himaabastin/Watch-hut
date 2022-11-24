@@ -1,7 +1,7 @@
 
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-<section "background-color: #ded5d5;">
+<section  class="mb-5""background-color: #ded5d5; " >
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     {{#each banner}}
@@ -10,7 +10,7 @@
       {{else}}
         <div class="carousel-item">
       {{/if}}
-        <img class="d-block w-100" style="height:50rem ;width:100%" src="/banner/{{this._id}}.jpg" alt="First slide">
+        <img class="d-block w-100" style="height:auto ;width:100%" src="/banner/{{this._id}}.jpg" alt="First slide">
       </div>
   {{/each}}
   </div>
