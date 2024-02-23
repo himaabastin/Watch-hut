@@ -18,3 +18,6 @@ Watch Hut is fully functional e-commerce website specified for watchs.
   - add coupons
   - banners
   - manage orders
+    
+## Technologies used:
+  - Node js,Express js,Mongodb atlas,Twilio,Express-Handlebars,Razorpay,Mongodb
